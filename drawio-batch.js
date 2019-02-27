@@ -98,9 +98,11 @@ async function exportDiagram(page, id, program, output) {
   if (program.format === 'pdf') {
     await page.pdf({path: output, width: width, height: height + 1, pageRanges: '1'})
   } else if(program.format === 'png') {
-    await page.screenshot({path: output, clip: bounds})
+    //await page.screenshot({path: output, clip: bounds}) 
+    await page.screenshot({path: output}) // Screenshot without clip because of a bug in puppeteer https://github.com/GoogleChrome/puppeteer/issues/3516
   } else {
-    await page.screenshot({path: output, clip: bounds, quality: program.quality})
+    //await page.screenshot({path: output, clip: bounds, quality: program.quality})
+    await page.screenshot({path: output, quality: program.quality}) // Screenshot without clip, see above
   }
 }
 
