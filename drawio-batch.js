@@ -90,6 +90,8 @@ async function exportDiagram(page, id, program, output) {
 
   var width = Math.ceil(bounds.x + bounds.width)
   var height = Math.ceil(bounds.y + bounds.height) 
+  
+  console.log("View port bounds: ",  bounds);
 
   await page.setViewport({width: width, height: height, deviceScaleFactor: 1})
   console.log("Exporting page " + id + ": " + output)
