@@ -113,7 +113,7 @@ function resolveOutput(output, program, diagram) {
 }
 
 (async () => {
-  const browser = await puppeteer.launch({args: ['--no-sandbox', '--allow-file-access-from-files'] /*, dumpio: true */ /*, headless: false */ })
+  const browser = await puppeteer.launch({args: ['--no-sandbox', '--allow-file-access-from-files', '--disable-dev-shm-usage'] /*, dumpio: true */ /*, headless: false */ })
   try {
     await input
     const page = await browser.newPage()
